@@ -10,7 +10,7 @@ module.exports = merge(common, {
     open: true,
     historyApiFallback: {
       rewrites: [
-        { from: /./, to: '/newTab/index.html' },
+        { from: /./, to: '/index.html' },
       ],
     },
   },
