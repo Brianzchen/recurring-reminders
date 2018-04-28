@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { goBack } from 'react-router-redux';
 
 import Dialog from 'components/Dialog';
+
+import { addReminder } from 'reducers/reminders/actions';
 
 import DayInput from './DayInput';
 import FrequencyInput from './FrequencyInput';
@@ -15,6 +21,7 @@ class NewReminder extends React.Component {
       days: [],
       frequency: 1,
     };
+    this.baseState = this.state;
   }
 
   onNameChange = event => {
@@ -32,7 +39,10 @@ class NewReminder extends React.Component {
   onSubmit = event => {
     event.preventDefault();
 
-    console.log(this.state);
+    if (this.state.name === '' || this.state.days.length === 0) return;
+
+    this.props.actions.addReminder(this.state);
+    this.props.actions.goBack();
   }
 
   render() {
@@ -61,4 +71,15 @@ class NewReminder extends React.Component {
   }
 }
 
-export default NewReminder;
+NewReminder.propTypes = {
+  actions: PropTypes.object.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    goBack,
+    addReminder,
+  }, dispatch),
+});
+
+export default connect(undefined, mapDispatchToProps)(NewReminder);
