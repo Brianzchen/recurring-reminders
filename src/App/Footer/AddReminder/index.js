@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     color: alternate,
     padding: '12px',
     borderRadius: '99px',
+    ':hover': {
+      opacity: 0.8,
+    },
   },
   icon: {
     height: buttonSize,
