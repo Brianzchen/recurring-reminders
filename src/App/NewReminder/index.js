@@ -13,7 +13,7 @@ class NewReminder extends React.Component {
     this.state = {
       name: '',
       days: [],
-      frequency: undefined,
+      frequency: 1,
     };
   }
 
@@ -31,6 +31,8 @@ class NewReminder extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
+
+    console.log(this.state);
   }
 
   render() {
@@ -46,8 +48,13 @@ class NewReminder extends React.Component {
             onDateSelect={this.onDateSelect}
           />
           <FrequencyInput
-            value={this.state.frequency}
+            onFrequencySelect={this.onFrequencySelect}
           />
+          <button
+            type="submit"
+          >
+            add
+          </button>
         </form>
       </Dialog>
     );
