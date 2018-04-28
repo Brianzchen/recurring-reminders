@@ -6,7 +6,7 @@ import AddReminder from './AddReminder';
 const styles = StyleSheet.create({
   container: {
     margin: 'auto',
-    padding: '4px 0',
+    padding: '32px 0',
   },
 });
 

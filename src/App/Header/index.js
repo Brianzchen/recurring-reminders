@@ -1,8 +1,11 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
+import { primary } from 'lib/colors';
+
 const styles = StyleSheet.create({
   header: {
+    color: primary,
     textAlign: 'center',
   },
 });

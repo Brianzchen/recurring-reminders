@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
+import SectionHeader from 'components/SectionHeader';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -9,7 +11,7 @@ const styles = StyleSheet.create({
 
 const UpcomingReminders = () => (
   <div className={css(styles.container)}>
-    UpcomingReminders
+    <SectionHeader value="Upcoming" />
   </div>
 );
 
