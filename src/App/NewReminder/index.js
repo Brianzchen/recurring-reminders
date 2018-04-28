@@ -42,7 +42,8 @@ class NewReminder extends React.Component {
             onChange={this.onNameChange}
           />
           <DayInput
-            value={this.state.days}
+            days={this.state.days}
+            onDateSelect={this.onDateSelect}
           />
           <FrequencyInput
             value={this.state.frequency}
