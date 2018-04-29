@@ -14,7 +14,7 @@ const DeleteReminderConfirmation = props => (
     Are you sure you want to delete this reminder?
     <button
       onClick={() => {
-        props.actions.deleteReminder();
+        props.actions.deleteReminder(props.match.params.reminderId);
         props.actions.goBack();
       }}
     >
@@ -25,6 +25,7 @@ const DeleteReminderConfirmation = props => (
 
 DeleteReminderConfirmation.propTypes = {
   actions: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
