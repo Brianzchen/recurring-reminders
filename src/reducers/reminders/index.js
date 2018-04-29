@@ -6,13 +6,14 @@ export default (state = initialState, action) => {
     case constants.SET_REMINDERS:
       return {
         ...state,
-        upcoming: action.payload.reminders,
         outstanding: action.payload.reminders,
+        upcoming: action.payload.reminders,
       };
     case constants.DELETE_REMINDER:
       return {
         ...state,
-        // TODO remove from outstanding and upcoming
+        outstanding: state.outstanding.filter(o => o.uid !== action.payload.uid),
+        upcoming: state.upcoming.filter(o => o.uid !== action.payload.uid),
       };
     default:
       return state;
