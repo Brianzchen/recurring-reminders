@@ -13,6 +13,7 @@ const createNewReminder = reminder => ({
   days: reminder.days,
   frequency: reminder.frequency,
   last: new Date().getTime(),
+  stackable: false, // TODO come from client
 });
 
 export default reminder => new Promise(resolve => {
