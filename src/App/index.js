@@ -4,9 +4,10 @@ import { StyleSheet, css } from 'aphrodite';
 
 import { maxHeight } from 'css';
 
-import { addNewReminder } from 'lib/locations';
+import { addNewReminder, deleteReminder } from 'lib/locations';
 
 import Body from './Body';
+import DeleteReminderConfirmation from './DeleteReminderConfirmation';
 import Footer from './Footer';
 import Header from './Header';
 import NewReminder from './NewReminder';
@@ -24,6 +25,7 @@ const App = () => (
     <Body />
     <Footer />
     <Route path={addNewReminder} component={NewReminder} />
+    <Route path={deleteReminder} component={DeleteReminderConfirmation} />
   </div>
 );
 

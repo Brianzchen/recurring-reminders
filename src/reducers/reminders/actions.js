@@ -1,11 +1,5 @@
 import * as constants from './constants';
 
-export const addReminder = reminder => (
-  (dispatch, getState, { service }) => {
-    service.addReminder(reminder);
-  }
-);
-
 export const getReminders = () => (
   (dispatch, getState, { service }) => {
     service.getReminders().then(reminders => {
@@ -22,6 +16,25 @@ export const getReminders = () => (
         type: constants.SET_UPCOMING_REMINDERS,
         payload: {
           reminders: upcoming,
+        },
+      });
+    });
+  }
+);
+
+export const addReminder = reminder => (
+  (dispatch, getState, { service }) => {
+    service.addReminder(reminder);
+  }
+);
+
+export const deleteReminder = uid => (
+  (dispatch, getState, { service }) => {
+    service.deleteReminder(uid).then(() => {
+      dispatch({
+        type: constants.DELETE_REMINDER,
+        payload: {
+          uid,
         },
       });
     });

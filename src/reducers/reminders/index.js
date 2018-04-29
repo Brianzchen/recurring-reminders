@@ -8,6 +8,11 @@ export default (state = initialState, action) => {
         ...state,
         upcoming: action.payload.reminders,
       };
+    case constants.DELETE_REMINDER:
+      return {
+        ...state,
+        // TODO remove from outstanding and upcoming
+      };
     default:
       return state;
   }

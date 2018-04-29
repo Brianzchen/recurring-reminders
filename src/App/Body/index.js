@@ -22,6 +22,7 @@ class Body extends React.Component {
       container: {
         flex: 1,
         display: 'flex',
+        padding: '0 32px',
       },
     });
 
