@@ -18,13 +18,15 @@ const createNewReminder = reminder => ({
 
 export default reminder => new Promise(resolve => {
   getReminders().then(storedReminders => {
+    const newReminder = createNewReminder(reminder);
+
     localStorage.setItem(
       remindersKey,
       JSON.stringify([
         ...storedReminders,
-        createNewReminder(reminder),
+        newReminder,
       ]),
     );
-    resolve();
+    resolve(newReminder);
   });
 });

@@ -15,7 +15,14 @@ export const getReminders = () => (
 
 export const addReminder = reminder => (
   (dispatch, getState, { service }) => {
-    service.addReminder(reminder);
+    service.addReminder(reminder).then(newReminder => {
+      dispatch({
+        type: constants.ADD_REMINDER,
+        payload: {
+          reminder: newReminder,
+        },
+      });
+    });
   }
 );
 
