@@ -7,7 +7,10 @@ import { map } from 'lodash';
 
 import SectionHeader from 'components/SectionHeader';
 
-import { markReminderComplete } from 'reducers/reminders/actions';
+import {
+  markReminderComplete,
+  markReminderUncomplete,
+} from 'reducers/reminders/actions';
 
 import Reminder from './Reminder';
 
@@ -25,7 +28,8 @@ const OutstandingReminders = props => (
         <Reminder
           key={o.uid}
           {...o}
-          onClick={props.actions.markReminderComplete}
+          markReminderComplete={props.actions.markReminderComplete}
+          markReminderUncomplete={props.actions.markReminderUncomplete}
         />
       ))
     }
@@ -44,6 +48,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     markReminderComplete,
+    markReminderUncomplete,
   }, dispatch),
 });
 

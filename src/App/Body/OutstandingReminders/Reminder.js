@@ -7,7 +7,7 @@ import Icon from 'components/Icon';
 import { disabled } from 'lib/colors';
 
 const Reminder = props => {
-  const done = typeof props.previous === 'undefined';
+  const done = typeof props.previous !== 'undefined';
 
   const styles = StyleSheet.create({
     container: {
@@ -28,7 +28,12 @@ const Reminder = props => {
   return (
     <div
       className={css(styles.container)}
-      onClick={props.onClick}
+      onClick={() => {
+        done
+          ? props.markReminderUncomplete(props.uid)
+          : props.markReminderComplete(props.uid);
+      }
+      }
     >
       <Icon
         icon={done ? 'checkbox-marked' : 'checkbox-blank-outline'}
@@ -40,9 +45,11 @@ const Reminder = props => {
 };
 
 Reminder.propTypes = {
+  uid: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   previous: PropTypes.number,
-  onClick: PropTypes.func.isRequired,
+  markReminderComplete: PropTypes.func.isRequired,
+  markReminderUncomplete: PropTypes.func.isRequired,
 };
 
 Reminder.defaultProps = {

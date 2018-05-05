@@ -41,6 +41,19 @@ export const deleteReminder = uid => (
 
 export const markReminderComplete = uid => (
   (dispatch, getState, { service }) => {
+    service.completeReminder(uid).then(reminder => {
+      dispatch({
+        type: constants.COMPLETE_REMINDER,
+        payload: {
+          reminder,
+        },
+      });
+    });
+  }
+);
+
+export const markReminderUncomplete = uid => (
+  (dispatch, getState, { service }) => {
 
   }
 );

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
@@ -20,6 +21,13 @@ const middleware = [
   }),
   routerMiddleware(history),
 ];
+
+const logger = createLogger({
+  collapsed: true,
+});
+if (process.env.NODE_ENV === 'development') {
+  middleware.push(logger);
+}
 
 const store = createStore(
   reducers,
