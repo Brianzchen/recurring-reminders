@@ -4,27 +4,49 @@ import { StyleSheet, css } from 'aphrodite';
 
 import Icon from 'components/Icon';
 
-const styles = StyleSheet.create({
-  container: {
-    cursor: 'pointer',
-  },
-});
+import { disabled } from 'lib/colors';
 
-const Reminder = props => (
-  <div
-    className={css(styles.container)}
-    onClick={props.onClick}
-  >
-    <Icon
-      icon="checkbox-blank-outline"
-    />
-    {props.name}
-  </div>
-);
+const Reminder = props => {
+  const done = typeof props.previous === 'undefined';
+
+  const styles = StyleSheet.create({
+    container: {
+      ...done
+        ? {
+          fontStyle: 'italic',
+          textDecoration: 'line-through',
+          color: disabled,
+        }
+        : {},
+      cursor: 'pointer',
+    },
+    icon: {
+      marginRight: '8px',
+    },
+  });
+
+  return (
+    <div
+      className={css(styles.container)}
+      onClick={props.onClick}
+    >
+      <Icon
+        icon={done ? 'checkbox-marked' : 'checkbox-blank-outline'}
+        className={css(styles.icon)}
+      />
+      {props.name}
+    </div>
+  );
+};
 
 Reminder.propTypes = {
   name: PropTypes.string.isRequired,
+  previous: PropTypes.number,
   onClick: PropTypes.func.isRequired,
+};
+
+Reminder.defaultProps = {
+  previous: undefined,
 };
 
 export default Reminder;
