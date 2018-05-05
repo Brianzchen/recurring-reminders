@@ -21,7 +21,7 @@ const getNext = reminder => {
   // of the week. Then we should set the next reminder occurance to be,
   // the first day in the next frequency week
   if (currentDay >= days[days.length - 1]) {
-    return (currentDayMilli - (days[0] * dayMilli)) + (frequency * weekMilli);
+    return (currentDayMilli - ((currentDay - days[0]) * dayMilli)) + (frequency * weekMilli);
   }
 
   // If the current day of the week is before the last reminder day of the week.
