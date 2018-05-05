@@ -4,22 +4,32 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { goBack } from 'react-router-redux';
+import { StyleSheet, css } from 'aphrodite';
 
+import Button from 'components/Button';
 import Dialog from 'components/Dialog';
 
 import { deleteReminder } from 'reducers/reminders/actions';
 
+const styles = StyleSheet.create({
+  text: {
+    marginBottom: '24px',
+  },
+});
+
 const DeleteReminderConfirmation = props => (
   <Dialog>
-    Are you sure you want to delete this reminder?
-    <button
+    <span className={css(styles.text)}>
+      Are you sure you want to delete this reminder?
+    </span>
+    <Button
       onClick={() => {
         props.actions.deleteReminder(props.match.params.reminderId);
         props.actions.goBack();
       }}
     >
       delete
-    </button>
+    </Button>
   </Dialog>
 );
 

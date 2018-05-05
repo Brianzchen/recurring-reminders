@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
     boxSizing: 'border-box',
   },
   container: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: '32px',
     borderRadius: '4px',
     backgroundColor: 'white',

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { goBack } from 'react-router-redux';
 
+import Button from 'components/Button';
 import Dialog from 'components/Dialog';
 
 import { addReminder } from 'reducers/reminders/actions';
@@ -60,11 +61,11 @@ class NewReminder extends React.Component {
           <FrequencyInput
             onFrequencySelect={this.onFrequencySelect}
           />
-          <button
+          <Button
             type="submit"
           >
             add
-          </button>
+          </Button>
         </form>
       </Dialog>
     );
