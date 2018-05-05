@@ -1,4 +1,4 @@
-import { findIndex } from 'lodash';
+import { map } from 'lodash';
 
 import * as constants from './constants';
 import initialState from './initialState';
@@ -28,22 +28,19 @@ export default (state = initialState, action) => {
         outstanding: state.outstanding.filter(o => o.uid !== action.payload.uid),
         upcoming: state.upcoming.filter(o => o.uid !== action.payload.uid),
       };
-    case constants.COMPLETE_REMINDER: {
-      const { outstanding } = state;
-      const reminderIndex = findIndex(
-        state.outstanding,
-        { uid: action.payload.reminder.uid },
-      );
-      outstanding[reminderIndex] = {
-        ...outstanding[reminderIndex],
-        previous: outstanding[reminderIndex].next,
-      };
-
+    case constants.COMPLETE_REMINDER:
       return {
         ...state,
-        outstanding,
+        outstanding: map(state.outstanding, o => {
+          if (o.uid === action.payload.reminder.uid) {
+            return {
+              ...o,
+              previous: o.next,
+            };
+          }
+          return o;
+        }),
       };
-    }
     default:
       return state;
   }
