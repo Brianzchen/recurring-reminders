@@ -41,6 +41,16 @@ export default (state = initialState, action) => {
           return o;
         }),
       };
+    case constants.UNCOMPLETE_REMINDER:
+      return {
+        ...state,
+        outstanding: map(state.outstanding, o => {
+          if (o.uid === action.payload.reminder.uid) {
+            return action.payload.reminder;
+          }
+          return o;
+        }),
+      };
     default:
       return state;
   }

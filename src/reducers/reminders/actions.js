@@ -1,3 +1,5 @@
+import { find } from 'lodash';
+
 import * as constants from './constants';
 
 export const getReminders = () => (
@@ -54,6 +56,14 @@ export const markReminderComplete = uid => (
 
 export const markReminderUncomplete = uid => (
   (dispatch, getState, { service }) => {
-
+    const currentReminder = find(getState().reminders.outstanding, { uid });
+    service.uncompleteReminder(uid, currentReminder.previous).then(reminder => {
+      dispatch({
+        type: constants.UNCOMPLETE_REMINDER,
+        payload: {
+          reminder,
+        },
+      });
+    });
   }
 );
