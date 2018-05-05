@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
 });
 
 const Reminder = props => (
-  <div className={css(styles.container)}>
+  <div
+    className={css(styles.container)}
+  >
     <Icon
       icon="checkbox-blank-outline"
     />

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import { StyleSheet, css } from 'aphrodite';
 import { map } from 'lodash';
 
@@ -23,6 +25,7 @@ const UpcomingReminders = props => (
           <Reminder
             key={o.uid}
             {...o}
+            onDelete={props.actions.push}
           />
         ))
       }
@@ -32,10 +35,17 @@ const UpcomingReminders = props => (
 
 UpcomingReminders.propTypes = {
   reminders: PropTypes.arrayOf(PropTypes.object).isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   reminders: state.reminders.upcoming,
 });
 
-export default connect(mapStateToProps)(UpcomingReminders);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    push,
+  }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpcomingReminders);

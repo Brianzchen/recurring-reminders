@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import { StyleSheet, css } from 'aphrodite';
 
 import { userSelectNone } from 'css';
@@ -36,9 +33,7 @@ const Reminder = props => (
       icon="close"
       title="Delete"
       onClick={() => {
-        props.actions.push(
-          mapParams(deleteReminder, { reminderId: props.uid }),
-        );
+        props.onDelete(mapParams(deleteReminder, { reminderId: props.uid }));
       }}
     />
   </div>
@@ -48,13 +43,7 @@ Reminder.propTypes = {
   uid: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   next: PropTypes.number.isRequired,
-  actions: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
-    push,
-  }, dispatch),
-});
-
-export default connect(undefined, mapDispatchToProps)(Reminder);
+export default Reminder;
