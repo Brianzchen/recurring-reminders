@@ -38,3 +38,9 @@ export const deleteReminder = uid => (
     });
   }
 );
+
+export const markReminderComplete = uid => (
+  (dispatch, getState, { service }) => {
+
+  }
+);

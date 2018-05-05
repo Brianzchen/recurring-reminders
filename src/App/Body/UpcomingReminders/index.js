@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { StyleSheet, css } from 'aphrodite';
-import { map } from 'lodash';
+import { map, sortBy } from 'lodash';
 
 import SectionHeader from 'components/SectionHeader';
 
@@ -21,7 +21,7 @@ const UpcomingReminders = props => (
     <SectionHeader value="Upcoming" />
     <div>
       {
-        map(props.reminders, o => (
+        map(sortBy(props.reminders, o => o.next), o => (
           <Reminder
             key={o.uid}
             {...o}

@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
 const Reminder = props => (
   <div
     className={css(styles.container)}
+    onClick={props.onClick}
   >
     <Icon
       icon="checkbox-blank-outline"
@@ -23,6 +24,7 @@ const Reminder = props => (
 
 Reminder.propTypes = {
   name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Reminder;
