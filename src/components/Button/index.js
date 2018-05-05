@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
   button: {
     color: alternate,
     backgroundColor: primary,
-    padding: '8px',
-    margin: '4px',
+    padding: '8px 12px',
+    margin: '24px 0 4px',
     borderRadius: '4px',
     border: 'none',
     outline: 'none',

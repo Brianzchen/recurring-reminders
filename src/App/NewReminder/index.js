@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { goBack } from 'react-router-redux';
+import { StyleSheet, css } from 'aphrodite';
 
 import Button from 'components/Button';
 import Dialog from 'components/Dialog';
@@ -47,9 +48,21 @@ class NewReminder extends React.Component {
   }
 
   render() {
+    const styles = StyleSheet.create({
+      form: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+    });
+
     return (
       <Dialog>
-        <form onSubmit={this.onSubmit}>
+        <form
+          className={css(styles.form)}
+          onSubmit={this.onSubmit}
+        >
           <NameInput
             value={this.state.name}
             onChange={this.onNameChange}

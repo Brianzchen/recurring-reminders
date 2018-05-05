@@ -5,3 +5,5 @@ export const primary = '#c1666b';
 export const alternate = '#e4dfda';
 
 export const disabled = '#bbbbbb';
+
+export const white = '#ffffff';

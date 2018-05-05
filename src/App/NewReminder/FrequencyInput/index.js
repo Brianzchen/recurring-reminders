@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 import keymirror from 'keymirror';
+
+import Label from 'components/Label';
 
 import Frequency from './Frequency';
 
@@ -25,33 +28,49 @@ class FrequencyInput extends React.Component {
   }
 
   render() {
+    const styles = StyleSheet.create({
+      container: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'top',
+      },
+      frequencies: {
+        flex: 1,
+      },
+    });
+
     return (
-      <div>
-        <Frequency
-          label="Week"
-          weight={1}
-          mode={frequencyModes.week}
-          selected={this.state.selectionMode === frequencyModes.week}
-          onClick={this.onChange}
-          adjustable
-          onMultiplierChange={this.props.onFrequencySelect}
-        />
-        <Frequency
-          label="Fortnight"
-          weight={2}
-          mode={frequencyModes.fortnight}
-          selected={this.state.selectionMode === frequencyModes.fortnight}
-          onClick={this.onChange}
-        />
-        <Frequency
-          label="Month (28 days)"
-          weight={4}
-          mode={frequencyModes.month}
-          selected={this.state.selectionMode === frequencyModes.month}
-          onClick={this.onChange}
-          adjustable
-          onMultiplierChange={this.props.onFrequencySelect}
-        />
+      <div className={css(styles.container)}>
+        <Label>
+          Every
+        </Label>
+        <div className={css(styles.frequencies)}>
+          <Frequency
+            label="Week"
+            weight={1}
+            mode={frequencyModes.week}
+            selected={this.state.selectionMode === frequencyModes.week}
+            onClick={this.onChange}
+            adjustable
+            onMultiplierChange={this.props.onFrequencySelect}
+          />
+          <Frequency
+            label="Fortnight"
+            weight={2}
+            mode={frequencyModes.fortnight}
+            selected={this.state.selectionMode === frequencyModes.fortnight}
+            onClick={this.onChange}
+          />
+          <Frequency
+            label="Month (28 days)"
+            weight={4}
+            mode={frequencyModes.month}
+            selected={this.state.selectionMode === frequencyModes.month}
+            onClick={this.onChange}
+            adjustable
+            onMultiplierChange={this.props.onFrequencySelect}
+          />
+        </div>
       </div>
     );
   }

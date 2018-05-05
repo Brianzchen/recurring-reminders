@@ -4,14 +4,17 @@ import { StyleSheet, css } from 'aphrodite';
 
 import { userSelectNone } from 'css';
 
-import { primary, alternate } from 'lib/colors';
+import { primary, alternate, disabled, white } from 'lib/colors';
 
 const Day = props => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      color: props.selected ? alternate : undefined,
-      backgroundColor: props.selected ? primary : undefined,
+      padding: '0 2px',
+      margin: '4px',
+      color: props.selected ? alternate : white,
+      backgroundColor: props.selected ? primary : disabled,
+      borderRadius: '2px',
       textAlign: 'center',
       cursor: 'pointer',
     },

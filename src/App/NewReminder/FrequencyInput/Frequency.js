@@ -42,7 +42,15 @@ class Frequency extends React.Component {
   render() {
     const styles = StyleSheet.create({
       container: {
+        display: 'flex',
+        alignItems: 'center',
+        height: '33px',
+        margin: '8px 0',
         cursor: 'pointer',
+      },
+      input: {
+        marginLeft: '8px',
+        width: '48px',
       },
     });
 
@@ -62,6 +70,7 @@ class Frequency extends React.Component {
           this.props.selected &&
           <input
             ref={this.inputRef}
+            className={css(styles.input)}
             value={this.state.multiplier}
             onChange={this.onMultiplierChange}
             onClick={() => { this.inputRef.current.select(); }}

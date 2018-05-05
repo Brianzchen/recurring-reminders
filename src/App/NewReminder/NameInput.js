@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
+
+import Label from 'components/Label';
 
 class NameInput extends React.Component {
   constructor(props) {
@@ -13,10 +16,23 @@ class NameInput extends React.Component {
   }
 
   render() {
+    const styles = StyleSheet.create({
+      container: {
+        display: 'flex',
+      },
+      input: {
+        flex: 1,
+      },
+    });
+
     return (
-      <div>
+      <div className={css(styles.container)}>
+        <Label>
+          Name
+        </Label>
         <input
           ref={this.inputRef}
+          className={css(styles.input)}
           value={this.props.value}
           onChange={this.props.onChange}
         />
