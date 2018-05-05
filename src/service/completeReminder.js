@@ -1,13 +1,8 @@
 import { find, map } from 'lodash';
 
-import { weekMilli } from 'lib/time';
-
 import getReminders from './getReminders';
+import getNext from './getNext';
 import remindersKey from './remindersKey';
-
-const getNext = reminder => {
-  return reminder.next + weekMilli;
-};
 
 export default uid => new Promise(resolve => {
   getReminders().then(reminders => {
