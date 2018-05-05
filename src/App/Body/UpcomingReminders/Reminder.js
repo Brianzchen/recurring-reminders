@@ -10,6 +10,7 @@ import { userSelectNone } from 'css';
 import Icon from 'components/Icon';
 
 import { mapParams, deleteReminder } from 'lib/locations';
+import { dayMilli } from 'lib/time';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,7 +27,9 @@ const styles = StyleSheet.create({
 const Reminder = props => (
   <div className={css(styles.container)}>
     <div className={css(styles.text)}>
-      {props.name}
+      {`
+        ${props.name} (in ${Math.round((props.next - new Date().getTime()) / dayMilli)} days)
+      `}
     </div>
     <Icon
       className={css(styles.close, userSelectNone)}
@@ -44,6 +47,7 @@ const Reminder = props => (
 Reminder.propTypes = {
   uid: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  next: PropTypes.number.isRequired,
   actions: PropTypes.object.isRequired,
 };
 
