@@ -4,7 +4,7 @@ export default reminder => {
   const { days, frequency } = reminder;
   days.sort();
 
-  const now = new Date();
+  const now = reminder.startDate || new Date();
   const currentDay = now.getDay();
   const currentDayMilli = now.getTime() - (now.getTime() % dayMilli);
 

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { goBack } from 'react-router-redux';
 import { StyleSheet, css } from 'aphrodite';
+import { padStart } from 'lodash';
 
 import Button from 'components/Button';
 import Dialog from 'components/Dialog';
@@ -13,6 +14,12 @@ import { addReminder } from 'reducers/reminders/actions';
 import DayInput from './DayInput';
 import FrequencyInput from './FrequencyInput';
 import NameInput from './NameInput';
+import StartDate from './StartDate';
+
+const getStartCalendarDate = () => {
+  const now = new Date();
+  return `${now.getYear() + 1900}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}`;
+};
 
 class NewReminder extends React.Component {
   constructor(props) {
@@ -22,6 +29,7 @@ class NewReminder extends React.Component {
       name: '',
       days: [],
       frequency: 1,
+      startDate: getStartCalendarDate(),
     };
     this.baseState = this.state;
   }
@@ -38,12 +46,21 @@ class NewReminder extends React.Component {
     this.setState({ frequency });
   }
 
+  onStartDateChange = event => {
+    this.setState({
+      startDate: event.target.value,
+    });
+  }
+
   onSubmit = event => {
     event.preventDefault();
 
     if (this.state.name === '' || this.state.days.length === 0) return;
 
-    this.props.actions.addReminder(this.state);
+    this.props.actions.addReminder({
+      ...this.state,
+      startDate: new Date(this.state.startDate),
+    });
     this.props.actions.goBack();
   }
 
@@ -73,6 +90,10 @@ class NewReminder extends React.Component {
           />
           <FrequencyInput
             onFrequencySelect={this.onFrequencySelect}
+          />
+          <StartDate
+            value={this.state.startDate}
+            onChange={this.onStartDateChange}
           />
           <Button
             type="submit"
