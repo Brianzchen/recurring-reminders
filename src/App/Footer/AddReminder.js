@@ -16,6 +16,12 @@ const buttonSize = '48px';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  circle: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,14 +44,18 @@ const styles = StyleSheet.create({
 
 const AddReminder = props => (
   <div
-    className={css(styles.container, userSelectNone)}
-    onClick={() => { props.actions.push(addNewReminder); }}
+    className={css(styles.container)}
   >
-    <Icon
-      icon="plus"
-      className={css(styles.icon)}
-      title="Add new reminder"
-    />
+    <div
+      className={css(styles.circle, userSelectNone)}
+      onClick={() => { props.actions.push(addNewReminder); }}
+    >
+      <Icon
+        icon="plus"
+        className={css(styles.icon)}
+        title="Add new reminder"
+      />
+    </div>
   </div>
 );
 
