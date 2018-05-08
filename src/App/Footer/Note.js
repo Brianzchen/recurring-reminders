@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 
-import { onNoteChange } from 'reducers/note/actions';
+import { onNoteChange, saveNote } from 'reducers/note/actions';
 
 const styles = StyleSheet.create({
   textArea: {
@@ -20,6 +20,7 @@ const Note = props => (
     className={css(styles.textArea)}
     value={props.value}
     onChange={e => { props.actions.onNoteChange(e.target.value); }}
+    onBlur={props.actions.saveNote}
     placeholder="Personal note"
   />
 );
@@ -36,6 +37,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     onNoteChange,
+    saveNote,
   }, dispatch),
 });
 

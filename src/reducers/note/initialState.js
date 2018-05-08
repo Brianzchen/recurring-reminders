@@ -1,3 +1,5 @@
+import noteKey from 'service/noteKey';
+
 export default {
-  value: '',
+  value: localStorage.getItem(noteKey) || '',
 };
