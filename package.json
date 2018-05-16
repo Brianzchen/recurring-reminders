@@ -8,7 +8,7 @@
     "clean": "rimraf newTab/dist",
     "analyze": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.analyze.js",
     "start": "webpack-dev-server --config webpack/webpack.dev.js",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js && rimraf node_modules"
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js && copyfiles manifest.json index.html dist/**/*.* public/**/*.* build"
   },
   "author": "",
   "private": true,
