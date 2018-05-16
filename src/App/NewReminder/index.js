@@ -12,6 +12,7 @@ import Dialog from 'components/Dialog';
 import { addReminder } from 'reducers/reminders/actions';
 
 import DayInput from './DayInput';
+import ErrorMessage from './ErrorMessage';
 import FrequencyInput from './FrequencyInput';
 import NameInput from './NameInput';
 import StartDate from './StartDate';
@@ -30,6 +31,7 @@ class NewReminder extends React.Component {
       days: [],
       frequency: 1,
       startDate: getStartCalendarDate(),
+      errorMessage: '',
     };
     this.baseState = this.state;
   }
@@ -55,7 +57,18 @@ class NewReminder extends React.Component {
   onSubmit = event => {
     event.preventDefault();
 
-    if (this.state.name === '' || this.state.days.length === 0) return;
+    if (this.state.name === '') {
+      this.setState({
+        errorMessage: 'Name missing',
+      });
+      return;
+    }
+    if (this.state.days.length === 0) {
+      this.setState({
+        errorMessage: 'No days selected',
+      });
+      return;
+    }
 
     this.props.actions.addReminder({
       ...this.state,
@@ -95,6 +108,7 @@ class NewReminder extends React.Component {
             value={this.state.startDate}
             onChange={this.onStartDateChange}
           />
+          <ErrorMessage value={this.state.errorMessage} />
           <Button
             type="submit"
           >

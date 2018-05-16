@@ -7,3 +7,5 @@ export const alternate = '#e4dfda';
 export const disabled = '#bbbbbb';
 
 export const white = '#ffffff';
+
+export const error = '#b33a3a';
