@@ -32,7 +32,9 @@ class DayInput extends React.Component {
 
     return (
       <div className={css(styles.container)}>
-        <Label>
+        <Label
+          mandatory
+        >
           Days
         </Label>
         <div className={css(styles.days)}>

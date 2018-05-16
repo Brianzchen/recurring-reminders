@@ -27,7 +27,9 @@ class NameInput extends React.Component {
 
     return (
       <div className={css(styles.container)}>
-        <Label>
+        <Label
+          mandatory
+        >
           Name
         </Label>
         <input
