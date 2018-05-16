@@ -20,6 +20,7 @@ const DeleteReminderConfirmation = props => (
         props.actions.deleteReminder(props.match.params.reminderId);
         props.actions.goBack();
       }}
+      focus
     >
       delete
     </Button>

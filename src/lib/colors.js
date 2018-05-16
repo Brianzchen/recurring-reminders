@@ -4,6 +4,8 @@ export const primary = '#c1666b';
 
 export const alternate = '#e4dfda';
 
+export const secondary = '#d4b483';
+
 export const disabled = '#bbbbbb';
 
 export const white = '#ffffff';
