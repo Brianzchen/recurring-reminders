@@ -8,7 +8,9 @@
     "clean": "rimraf newTab/dist",
     "analyze": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.analyze.js",
     "start": "webpack-dev-server --config webpack/webpack.dev.js",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js && copyfiles manifest.json index.html dist/**/*.* public/**/*.* build"
+    "copy-public": "copyfiles public/**/*.*  public/mdi/**/*.* build",
+    "copy": "copyfiles manifest.json index.html dist/**/**/*.* build && npm run copy-public",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js && npm run copy"
   },
   "author": "",
   "private": true,
@@ -41,6 +43,7 @@
     "babel-loader": "8.0.0-beta.2",
     "babel-plugin-transform-imports": "^1.5.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "copyfiles": "^2.0.0",
     "cross-env": "^5.1.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
