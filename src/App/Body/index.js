@@ -8,6 +8,7 @@ import { getReminders } from 'reducers/reminders/actions';
 
 import OutstandingReminders from './OutstandingReminders';
 import Separator from './Separator';
+import Todo from './Todo';
 import UpcomingReminders from './UpcomingReminders';
 
 class Body extends React.Component {
@@ -24,11 +25,19 @@ class Body extends React.Component {
         display: 'flex',
         padding: '0 32px',
       },
+      left: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+      },
     });
 
     return (
       <div className={css(styles.container)}>
-        <OutstandingReminders />
+        <div className={css(styles.left)}>
+          <OutstandingReminders />
+          <Todo />
+        </div>
         <Separator />
         <UpcomingReminders />
       </div>

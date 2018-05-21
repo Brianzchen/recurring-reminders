@@ -1,48 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
 
-import Icon from 'components/Icon';
+import CheckboxListItem from 'components/CheckboxListItem';
 
-import { disabled } from 'lib/colors';
-
-const Reminder = props => {
-  const done = typeof props.previous !== 'undefined';
-
-  const styles = StyleSheet.create({
-    container: {
-      ...done
-        ? {
-          fontStyle: 'italic',
-          textDecoration: 'line-through',
-          color: disabled,
-        }
-        : {},
-      cursor: 'pointer',
-    },
-    icon: {
-      marginRight: '8px',
-    },
-  });
-
-  return (
-    <div
-      className={css(styles.container)}
-      onClick={() => {
-        done
-          ? props.markReminderUncomplete(props.uid)
-          : props.markReminderComplete(props.uid);
-      }
-      }
-    >
-      <Icon
-        icon={done ? 'checkbox-marked' : 'checkbox-blank-outline'}
-        className={css(styles.icon)}
-      />
-      {props.name}
-    </div>
-  );
-};
+const Reminder = props => (
+  <CheckboxListItem
+    done={typeof props.previous !== 'undefined'}
+    onDone={() => { props.markReminderUncomplete(props.uid); }}
+    onUndone={() => { props.markReminderComplete(props.uid); }}
+  >
+    {props.name}
+  </CheckboxListItem>
+);
 
 Reminder.propTypes = {
   uid: PropTypes.string.isRequired,
