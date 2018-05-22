@@ -27,7 +27,7 @@ const Reminder = props => {
 
   return (
     <div
-      className={css(styles.container)}
+      className={`${css(styles.container)} ${props.className}`}
       onClick={props.done
         ? props.onDone
         : props.onUndone
@@ -44,12 +44,14 @@ const Reminder = props => {
 
 Reminder.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   done: PropTypes.bool,
   onDone: PropTypes.func,
   onUndone: PropTypes.func,
 };
 
 Reminder.defaultProps = {
+  className: '',
   done: false,
   onDone: () => {},
   onUndone: () => {},

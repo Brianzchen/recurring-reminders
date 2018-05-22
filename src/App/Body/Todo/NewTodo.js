@@ -37,6 +37,9 @@ class NewTodo extends React.Component {
 
   render() {
     const styles = StyleSheet.create({
+      listItem: {
+        marginTop: '28px',
+      },
       form: {
         flex: 1,
       },
@@ -54,7 +57,9 @@ class NewTodo extends React.Component {
     });
 
     return (
-      <CheckboxListItem>
+      <CheckboxListItem
+        className={css(styles.listItem)}
+      >
         <form
           className={css(styles.form)}
           onSubmit={this.submit}
