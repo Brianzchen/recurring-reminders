@@ -1,3 +1,5 @@
+import generateUid from 'lib/generateUid';
+
 import * as constants from './constants';
 
 export const getTodos = () => (
@@ -13,12 +15,18 @@ export const getTodos = () => (
 );
 
 export const addTodo = name => (
-  (dispatch, getState, { serice }) => {
+  (dispatch, getState, { service }) => {
     // service call to store and return all todos?
     dispatch({
       type: constants.ADD_TODO,
       payload: {
-        name,
+        todos: [
+          ...getState().todo.todos,
+          {
+            uid: generateUid(),
+            name,
+          },
+        ],
       },
     });
   }

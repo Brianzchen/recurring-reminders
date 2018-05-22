@@ -4,12 +4,14 @@
 // frequency (number) - how often the reminder should trigger on a week to week basis
 //    where frequency is the number of weeks
 
+import generateUid from 'lib/generateUid';
+
 import remindersKey from './remindersKey';
 import getNext from './getNext';
 import getReminders from './getReminders';
 
 const createNewReminder = reminder => ({
-  uid: `${new Date().getTime()}`,
+  uid: generateUid(),
   name: reminder.name,
   days: reminder.days,
   frequency: reminder.frequency,

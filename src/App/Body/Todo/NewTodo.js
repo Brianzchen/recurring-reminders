@@ -1,7 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 
 import CheckboxListItem from 'components/CheckboxListItem';
+
+import { addTodo } from 'reducers/todo/actions';
 
 class NewTodo extends React.Component {
   constructor(props) {
@@ -22,7 +27,9 @@ class NewTodo extends React.Component {
   submit = event => {
     event.preventDefault();
 
-    console.log(this.state.inputValue);
+    if (this.state.inputValue.length === 0) return;
+
+    this.props.actions.addTodo(this.state.inputValue);
     this.setState(this.baseState);
   }
 
@@ -53,4 +60,14 @@ class NewTodo extends React.Component {
   }
 }
 
-export default NewTodo;
+NewTodo.propTypes = {
+  actions: PropTypes.object.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    addTodo,
+  }, dispatch),
+});
+
+export default connect(undefined, mapDispatchToProps)(NewTodo);
