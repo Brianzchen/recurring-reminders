@@ -6,6 +6,8 @@ import { StyleSheet, css } from 'aphrodite';
 
 import CheckboxListItem from 'components/CheckboxListItem';
 
+import { primary, alternate } from 'lib/colors';
+
 import { addTodo } from 'reducers/todo/actions';
 
 class NewTodo extends React.Component {
@@ -36,10 +38,18 @@ class NewTodo extends React.Component {
   render() {
     const styles = StyleSheet.create({
       form: {
-        display: 'inline',
+        flex: 1,
       },
       input: {
-
+        width: '100%',
+        padding: '4px',
+        borderRadius: '2px',
+        margin: '1px',
+        border: `1px solid ${alternate}`,
+        outline: 'none',
+        ':focus': {
+          border: `1px solid ${primary}`,
+        },
       },
     });
 

@@ -9,6 +9,8 @@ import { disabled } from 'lib/colors';
 const Reminder = props => {
   const styles = StyleSheet.create({
     container: {
+      display: 'flex',
+      alignItems: 'center',
       ...props.done
         ? {
           fontStyle: 'italic',
