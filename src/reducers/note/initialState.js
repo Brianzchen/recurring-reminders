@@ -1,4 +1,4 @@
-import noteKey from 'service/noteKey';
+import { noteKey } from 'service/storageKeys';
 
 export default {
   value: localStorage.getItem(noteKey) || '',

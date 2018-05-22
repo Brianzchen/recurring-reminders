@@ -6,7 +6,7 @@
 
 import generateUid from 'lib/generateUid';
 
-import remindersKey from './remindersKey';
+import { remindersKey } from './storageKeys';
 import getNext from './getNext';
 import getReminders from './getReminders';
 

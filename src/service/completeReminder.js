@@ -2,7 +2,7 @@ import { find, map } from 'lodash';
 
 import getReminders from './getReminders';
 import getNext from './getNext';
-import remindersKey from './remindersKey';
+import { remindersKey } from './storageKeys';
 
 export default uid => new Promise(resolve => {
   getReminders().then(reminders => {

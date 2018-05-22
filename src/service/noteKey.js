@@ -1,1 +1,0 @@
-export default 'recurringReminders-note';
