@@ -1,16 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import CheckboxListItem from 'components/CheckboxListItem';
 
+import { completeTodo } from 'reducers/todo/actions';
+
 const TodoItem = props => (
-  <CheckboxListItem>
+  <CheckboxListItem
+    done={props.done}
+    onDone={() => { props.actions.completeTodo(props.uid); }}
+    onUndone={() => { props.actions.completeTodo(props.uid); }}
+  >
     {props.name}
   </CheckboxListItem>
 );
 
 TodoItem.propTypes = {
+  uid: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  done: PropTypes.bool,
+  actions: PropTypes.object.isRequired,
 };
 
-export default TodoItem;
+TodoItem.defaultProps = {
+  done: false,
+};
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    completeTodo,
+  }, dispatch),
+});
+
+export default connect(undefined, mapDispatchToProps)(TodoItem);

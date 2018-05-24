@@ -25,3 +25,16 @@ export const addTodo = name => (
     });
   }
 );
+
+export const completeTodo = todoUid => (
+  (dispatch, getState, { service }) => {
+    service.completeTodo(todoUid).then(() => {
+      dispatch({
+        type: constants.COMPLETE_TODO,
+        payload: {
+          todoUid,
+        },
+      });
+    });
+  }
+);

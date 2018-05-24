@@ -1,3 +1,5 @@
+import { map } from 'lodash';
+
 import * as constants from './constants';
 import initialState from './initialState';
 
@@ -15,6 +17,19 @@ export default (state = initialState, action) => {
           ...state.todos,
           action.payload.newTodo,
         ],
+      };
+    case constants.COMPLETE_TODO:
+      return {
+        ...state,
+        todos: map(state.todos, o => {
+          if (o.uid === action.payload.todoUid) {
+            return {
+              ...o,
+              done: true,
+            };
+          }
+          return o;
+        }),
       };
     default:
       return state;
