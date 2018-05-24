@@ -2,21 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-import { primary, alternate, secondary } from 'lib/colors';
+import { focus as focusCss } from 'css';
 
-const boxShadow = (spread = 0) => `0px 0px 20px ${spread}px ${secondary}`;
-
-const focusAnimation = {
-  '0%': {
-    boxShadow: boxShadow(),
-  },
-  '50%': {
-    boxShadow: boxShadow(5),
-  },
-  '100%': {
-    boxShadow: boxShadow(),
-  },
-};
+import { primary, alternate } from 'lib/colors';
 
 class Button extends React.Component {
   constructor(props) {
@@ -44,11 +32,6 @@ class Button extends React.Component {
         ':hover': {
           opacity: 0.8,
         },
-        ':focus': {
-          animationName: [focusAnimation],
-          animationDuration: '3s',
-          animationIterationCount: 'infinite',
-        },
       },
     });
 
@@ -61,7 +44,7 @@ class Button extends React.Component {
     return (
       <button
         ref={this.buttonRef}
-        className={css(styles.button)}
+        className={css(styles.button, focusCss)}
         {...otherProps}
       >
         {children.toUpperCase()}
