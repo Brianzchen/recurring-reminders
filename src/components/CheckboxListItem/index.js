@@ -29,8 +29,8 @@ const Reminder = props => {
     <div
       className={`${css(styles.container)} ${props.className}`}
       onClick={props.done
-        ? props.onDone
-        : props.onUndone
+        ? props.onUndone
+        : props.onDone
       }
     >
       <Icon

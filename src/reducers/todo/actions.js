@@ -1,3 +1,5 @@
+import { find } from 'lodash';
+
 import * as constants from './constants';
 
 export const getTodos = () => (
@@ -31,6 +33,21 @@ export const completeTodo = todoUid => (
     service.completeTodo(todoUid).then(() => {
       dispatch({
         type: constants.COMPLETE_TODO,
+        payload: {
+          todoUid,
+        },
+      });
+    });
+  }
+);
+
+export const uncompleteReminder = todoUid => (
+  (dispatch, getState, { service }) => {
+    const todo = find(getState().todo.todos, { uid: todoUid });
+
+    service.addTodo(todo.name).then(() => {
+      dispatch({
+        type: constants.UNCOMPLETE_REMINDER,
         payload: {
           todoUid,
         },

@@ -6,8 +6,8 @@ import CheckboxListItem from 'components/CheckboxListItem';
 const Reminder = props => (
   <CheckboxListItem
     done={typeof props.previous !== 'undefined'}
-    onDone={() => { props.markReminderUncomplete(props.uid); }}
-    onUndone={() => { props.markReminderComplete(props.uid); }}
+    onDone={() => { props.markReminderComplete(props.uid); }}
+    onUndone={() => { props.markReminderUncomplete(props.uid); }}
   >
     {props.name}
   </CheckboxListItem>

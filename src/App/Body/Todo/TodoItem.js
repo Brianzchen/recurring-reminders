@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 
 import CheckboxListItem from 'components/CheckboxListItem';
 
-import { completeTodo } from 'reducers/todo/actions';
+import { completeTodo, uncompleteReminder } from 'reducers/todo/actions';
 
 const TodoItem = props => (
   <CheckboxListItem
     done={props.done}
     onDone={() => { props.actions.completeTodo(props.uid); }}
-    onUndone={() => { props.actions.completeTodo(props.uid); }}
+    onUndone={() => { props.actions.uncompleteReminder(props.uid); }}
   >
     {props.name}
   </CheckboxListItem>
@@ -31,6 +31,7 @@ TodoItem.defaultProps = {
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     completeTodo,
+    uncompleteReminder,
   }, dispatch),
 });
 

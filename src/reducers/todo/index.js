@@ -31,6 +31,19 @@ export default (state = initialState, action) => {
           return o;
         }),
       };
+    case constants.UNCOMPLETE_REMINDER:
+      return {
+        ...state,
+        todos: map(state.todos, o => {
+          if (o.uid === action.payload.todoUid) {
+            return {
+              ...o,
+              done: false,
+            };
+          }
+          return o;
+        }),
+      };
     default:
       return state;
   }
