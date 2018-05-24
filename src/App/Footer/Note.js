@@ -4,14 +4,23 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 
+import { primary, alternate } from 'lib/colors';
+
 import { onNoteChange, saveNote } from 'reducers/note/actions';
 
 const styles = StyleSheet.create({
   textArea: {
     flex: 1,
     width: '100%',
-    margin: '0 8px',
+    padding: '2px',
+    margin: '1px 8px',
     resize: 'none',
+    borderRadius: '2px',
+    border: `1px solid ${alternate}`,
+    outline: 'none',
+    ':focus': {
+      border: `1px solid ${primary}`,
+    },
   },
 });
 
