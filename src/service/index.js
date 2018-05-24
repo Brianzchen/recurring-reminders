@@ -6,6 +6,8 @@ import uncompleteReminder from './uncompleteReminder';
 
 import saveNote from './saveNote';
 
+import todos from './todos';
+
 export default {
   addReminder,
   deleteReminder,
@@ -13,4 +15,5 @@ export default {
   completeReminder,
   uncompleteReminder,
   saveNote,
+  ...todos,
 };
