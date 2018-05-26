@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-import { userSelectNone } from 'css';
+import { focus, userSelectNone } from 'css';
 
 import { primary, alternate, disabled, white } from 'lib/colors';
 
@@ -21,12 +21,12 @@ const Day = props => {
   });
 
   return (
-    <div
-      className={css(styles.container, userSelectNone)}
+    <button
+      className={css(styles.container, focus, userSelectNone)}
       onClick={() => { props.onClick(props.index, props.selected); }}
     >
       {props.value}
-    </div>
+    </button>
   );
 };
 
