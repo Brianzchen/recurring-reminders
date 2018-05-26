@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-import { focus as focusCss } from 'css';
+import { focus as focusCss, standardFontSize } from 'css';
 
 import { primary, alternate } from 'lib/colors';
 
@@ -44,7 +44,7 @@ class Button extends React.Component {
     return (
       <button
         ref={this.buttonRef}
-        className={css(styles.button, focusCss)}
+        className={css(styles.button, focusCss, standardFontSize)}
         {...otherProps}
       >
         {children.toUpperCase()}

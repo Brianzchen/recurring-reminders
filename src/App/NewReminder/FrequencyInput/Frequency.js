@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-import { userSelectNone } from 'css';
+import { standardFontSize, userSelectNone } from 'css';
 
 import Icon from 'components/Icon';
+import Input from 'components/Input';
 
 class Frequency extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Frequency extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.onMultiplierChange = this.onMultiplierChange.bind(this);
     this.getFrequency = this.getFrequency.bind(this);
+    this.highLightInput = this.highLightInput.bind(this);
 
     this.inputRef = React.createRef();
   }
@@ -39,6 +41,10 @@ class Frequency extends React.Component {
     return this.state.multiplier * this.props.weight;
   }
 
+  highLightInput() {
+    this.inputRef.current.select();
+  }
+
   render() {
     const styles = StyleSheet.create({
       container: {
@@ -56,7 +62,7 @@ class Frequency extends React.Component {
 
     return (
       <div
-        className={css(styles.container, userSelectNone)}
+        className={css(styles.container, standardFontSize, userSelectNone)}
         onClick={this.onClick}
       >
         <Icon
@@ -68,12 +74,12 @@ class Frequency extends React.Component {
         {
           this.props.adjustable &&
           this.props.selected &&
-          <input
-            ref={this.inputRef}
+          <Input
+            inputRef={this.inputRef}
             className={css(styles.input)}
             value={this.state.multiplier}
             onChange={this.onMultiplierChange}
-            onClick={() => { this.inputRef.current.select(); }}
+            onClick={this.highLightInput}
           />
         }
       </div>
