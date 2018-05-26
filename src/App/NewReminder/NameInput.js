@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
+import { standardFontSize } from 'css';
+
+import Input from 'components/Input';
 import Label from 'components/Label';
 
 class NameInput extends React.Component {
@@ -19,6 +22,7 @@ class NameInput extends React.Component {
     const styles = StyleSheet.create({
       container: {
         display: 'flex',
+        width: '100%',
       },
       input: {
         flex: 1,
@@ -32,8 +36,8 @@ class NameInput extends React.Component {
         >
           Name
         </Label>
-        <input
-          ref={this.inputRef}
+        <Input
+          inputRef={this.inputRef}
           className={css(styles.input)}
           value={this.props.value}
           onChange={this.props.onChange}

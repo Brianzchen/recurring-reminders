@@ -7,8 +7,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { standardFontSize } from 'css';
 
 import CheckboxListItem from 'components/CheckboxListItem';
-
-import { primary, alternate } from 'lib/colors';
+import Input from 'components/Input';
 
 import { addTodo } from 'reducers/todo/actions';
 
@@ -45,17 +44,6 @@ class NewTodo extends React.Component {
       form: {
         flex: 1,
       },
-      input: {
-        width: '100%',
-        padding: '4px',
-        borderRadius: '2px',
-        margin: '1px',
-        border: `1px solid ${alternate}`,
-        outline: 'none',
-        ':focus': {
-          border: `1px solid ${primary}`,
-        },
-      },
     });
 
     return (
@@ -66,8 +54,7 @@ class NewTodo extends React.Component {
           className={css(styles.form)}
           onSubmit={this.submit}
         >
-          <input
-            className={css(styles.input, standardFontSize)}
+          <Input
             value={this.state.inputValue}
             onChange={this.handleInputChange}
           />
