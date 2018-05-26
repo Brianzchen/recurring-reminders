@@ -30,8 +30,9 @@ class FrequencyInput extends React.Component {
   render() {
     const styles = StyleSheet.create({
       container: {
-        width: '100%',
         display: 'flex',
+        width: '100%',
+        margin: '8px 0',
         alignItems: 'top',
       },
       frequencies: {

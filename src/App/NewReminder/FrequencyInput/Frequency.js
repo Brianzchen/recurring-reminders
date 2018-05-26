@@ -51,7 +51,6 @@ class Frequency extends React.Component {
         display: 'flex',
         alignItems: 'center',
         height: '33px',
-        margin: '8px 0',
         cursor: 'pointer',
       },
       input: {
