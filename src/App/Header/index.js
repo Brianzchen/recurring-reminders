@@ -6,6 +6,7 @@ import { primary } from 'lib/colors';
 const styles = StyleSheet.create({
   header: {
     color: primary,
+    fontSize: '24px',
     textAlign: 'center',
   },
 });
