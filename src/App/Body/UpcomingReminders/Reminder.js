@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
-import { userSelectNone } from 'css';
+import { standardFontSize, userSelectNone } from 'css';
 
 import Icon from 'components/Icon';
 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 });
 
 const Reminder = props => (
-  <div className={css(styles.container)}>
+  <div className={css(styles.container, standardFontSize)}>
     <div className={css(styles.text)}>
       {`
         ${props.name} (in ${Math.round((props.next - new Date().getTime()) / dayMilli)} days)

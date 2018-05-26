@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 
+import { standardFontSize } from 'css';
+
 import CheckboxListItem from 'components/CheckboxListItem';
 
 import { primary, alternate } from 'lib/colors';
@@ -58,14 +60,14 @@ class NewTodo extends React.Component {
 
     return (
       <CheckboxListItem
-        className={css(styles.listItem)}
+        className={css(styles.listItem, standardFontSize)}
       >
         <form
           className={css(styles.form)}
           onSubmit={this.submit}
         >
           <input
-            className={css(styles.input)}
+            className={css(styles.input, standardFontSize)}
             value={this.state.inputValue}
             onChange={this.handleInputChange}
           />

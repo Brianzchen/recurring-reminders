@@ -20,6 +20,7 @@ export const {
   focus,
   maxHeight,
   userSelectNone,
+  standardFontSize,
 } = StyleSheet.create({
   focus: {
     ':focus': {
@@ -36,5 +37,8 @@ export const {
     MozUserSelect: 'none',
     MsUserSelect: 'none',
     userSelect: 'none',
+  },
+  standardFontSize: {
+    fontSize: '14px',
   },
 });

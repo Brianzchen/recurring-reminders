@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 
+import { standardFontSize } from 'css';
+
 import { primary, alternate } from 'lib/colors';
 
 import { onNoteChange, saveNote } from 'reducers/note/actions';
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
 
 const Note = props => (
   <textarea
-    className={css(styles.textArea)}
+    className={css(styles.textArea, standardFontSize)}
     value={props.value}
     onChange={e => { props.actions.onNoteChange(e.target.value); }}
     onBlur={props.actions.saveNote}

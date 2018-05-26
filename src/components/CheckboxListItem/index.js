@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
+import { standardFontSize } from 'css';
+
 import Icon from 'components/Icon';
 
 import { disabled } from 'lib/colors';
@@ -27,7 +29,7 @@ const Reminder = props => {
 
   return (
     <div
-      className={`${css(styles.container)} ${props.className}`}
+      className={`${css(styles.container, standardFontSize)} ${props.className}`}
       onClick={props.done
         ? props.onUndone
         : props.onDone

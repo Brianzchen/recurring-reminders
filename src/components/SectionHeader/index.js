@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   header: {
     marginTop: 0,
     color: primary,
+    fontSize: '18px',
     textAlign: 'center',
   },
 });
