@@ -21,8 +21,9 @@ class DayInput extends React.Component {
   render() {
     const styles = StyleSheet.create({
       container: {
-        width: '100%',
         display: 'flex',
+        margin: '4px 0',
+        width: '100%',
       },
       days: {
         flex: 1,

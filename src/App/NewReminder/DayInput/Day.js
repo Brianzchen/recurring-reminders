@@ -22,6 +22,7 @@ const Day = props => {
 
   return (
     <button
+      type="button"
       className={css(styles.container, focus, userSelectNone)}
       onClick={() => { props.onClick(props.index, props.selected); }}
     >
