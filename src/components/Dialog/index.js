@@ -53,6 +53,7 @@ class Dialog extends React.Component {
         padding: '32px',
         borderRadius: '4px',
         backgroundColor: 'white',
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
       },
     });
 
