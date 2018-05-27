@@ -7,6 +7,7 @@ const config = {
       },
     ],
     '@babel/preset-react',
+    'flow',
   ],
   plugins: [
     '@babel/plugin-proposal-object-rest-spread',
