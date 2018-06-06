@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
+    "flow": "flow status",
     "clean": "rimraf newTab/dist",
     "analyze": "npm run clean && cross-env NODE_ENV=production webpack --config webpack/webpack.analyze.js",
     "start": "webpack-dev-server --config webpack/webpack.dev.js",
@@ -37,6 +38,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-flow": "^7.0.0-beta.49",
     "@babel/preset-react": "^7.0.0-beta.40",
     "babel-cli": "^6.26.0",
     "babel-core": "7.0.0-bridge.0",

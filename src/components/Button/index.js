@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
@@ -10,8 +11,12 @@ import {
 
 import { primary, alternate } from 'lib/colors';
 
-class Button extends React.Component {
-  constructor(props) {
+type Props = {
+  focus: boolean,
+};
+
+class Button extends React.Component<Props> {
+  constructor(props: Props) {
     super(props);
 
     this.buttonRef = React.createRef();
