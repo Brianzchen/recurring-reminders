@@ -10,6 +10,7 @@ import Body from './Body';
 import DeleteReminderConfirmation from './DeleteReminderConfirmation';
 import Footer from './Footer';
 import Header from './Header';
+import Hide from './Hide';
 import NewReminder from './NewReminder';
 
 const styles = StyleSheet.create({
@@ -24,6 +25,7 @@ const App = () => (
     <Header />
     <Body />
     <Footer />
+    <Hide />
     <Route path={addNewReminder} component={NewReminder} />
     <Route path={deleteReminder} component={DeleteReminderConfirmation} />
   </div>
