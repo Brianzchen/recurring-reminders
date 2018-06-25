@@ -6,6 +6,8 @@ import { goBack } from 'react-router-redux';
 import { StyleSheet, css } from 'aphrodite';
 import keycode from 'keycode';
 
+import Background from 'components/Background';
+
 class Dialog extends React.Component {
   constructor(props) {
     super(props);
@@ -32,19 +34,6 @@ class Dialog extends React.Component {
 
   render() {
     const styles = StyleSheet.create({
-      background: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: '100%',
-        width: '100%',
-        padding: '64px',
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
-        boxSizing: 'border-box',
-      },
       container: {
         display: 'flex',
         flexDirection: 'column',
@@ -58,8 +47,7 @@ class Dialog extends React.Component {
     });
 
     return (
-      <div
-        className={css(styles.background)}
+      <Background
         onClick={this.props.actions.goBack}
       >
         <div
@@ -68,7 +56,7 @@ class Dialog extends React.Component {
         >
           {this.props.children}
         </div>
-      </div>
+      </Background>
     );
   }
 }
