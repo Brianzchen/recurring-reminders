@@ -9,6 +9,9 @@ module.exports = {
     publicPath: '/dist/',
   },
   resolve: {
+    alias: {
+      aphrodite: 'aphrodite/no-important',
+    },
     extensions: ['*', '.js', '.jsx', '.css'],
     modules: [
       path.resolve('./src'),
