@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router';
 import { StyleSheet, css } from 'aphrodite';
 
 import { maxHeight } from 'css';
@@ -13,22 +15,33 @@ import Header from './Header';
 import Hide from './Hide';
 import NewReminder from './NewReminder';
 
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
+const App = props => {
+  const styles = StyleSheet.create({
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      filter: props.hidden && 'blur(5px)',
+    },
+  });
+
+  return (
+    <div className={css(styles.container, maxHeight)}>
+      <Header />
+      <Body />
+      <Footer />
+      <Hide />
+      <Route path={addNewReminder} component={NewReminder} />
+      <Route path={deleteReminder} component={DeleteReminderConfirmation} />
+    </div>
+  );
+};
+
+App.propTypes = {
+  hidden: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  hidden: state.app.hidden,
 });
 
-const App = () => (
-  <div className={css(styles.container, maxHeight)}>
-    <Header />
-    <Body />
-    <Footer />
-    <Hide />
-    <Route path={addNewReminder} component={NewReminder} />
-    <Route path={deleteReminder} component={DeleteReminderConfirmation} />
-  </div>
-);
-
-export default App;
+export default withRouter(connect(mapStateToProps)(App));
