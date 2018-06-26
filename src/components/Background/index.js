@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 const Background = props => (
   <div
-    className={css(styles.background)}
+    className={`${css(styles.background)} ${props.className}`}
     onClick={props.onClick}
   >
     {props.children}
@@ -30,11 +30,13 @@ const Background = props => (
 Background.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 Background.defaultProps = {
   children: null,
   onClick: () => {},
+  className: '',
 };
 
 export default Background;

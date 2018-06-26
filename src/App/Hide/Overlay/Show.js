@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   button: {
     color: primary,
     fontSize: '64px',
+    cursor: 'pointer',
   },
 });
 
@@ -18,6 +19,7 @@ const Show = props => (
   <i
     className={`${css(styles.button)} mdi mdi-chevron-up`}
     onClick={props.onClick}
+    title="show"
   />
 );
 
