@@ -1,3 +1,5 @@
+import { hiddenKey } from 'service/storageKeys';
+
 export default {
-  hidden: false,
+  hidden: !!localStorage.getItem(hiddenKey),
 };
