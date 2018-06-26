@@ -1,9 +1,10 @@
 import { find, map } from 'lodash';
 
 import getReminders from './getReminders';
-import { remindersKey } from './storageKeys';
+import getNext from './getNext';
+import { remindersKey } from '../storageKeys';
 
-export default (uid, previous) => new Promise(resolve => {
+export default uid => new Promise(resolve => {
   getReminders().then(reminders => {
     const reminder = find(reminders, { uid });
 
@@ -13,7 +14,7 @@ export default (uid, previous) => new Promise(resolve => {
         if (o.uid === uid) {
           return {
             ...o,
-            next: previous,
+            next: getNext(reminder),
           };
         }
         return o;

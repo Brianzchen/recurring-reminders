@@ -1,19 +1,10 @@
-import addReminder from './addReminder';
-import deleteReminder from './deleteReminder';
-import getReminders from './getReminders';
-import completeReminder from './completeReminder';
-import uncompleteReminder from './uncompleteReminder';
-
 import saveNote from './saveNote';
 
+import reminders from './reminders';
 import todos from './todos';
 
 export default {
-  addReminder,
-  deleteReminder,
-  getReminders,
-  completeReminder,
-  uncompleteReminder,
+  ...reminders,
   saveNote,
   ...todos,
 };

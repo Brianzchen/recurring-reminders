@@ -1,5 +1,5 @@
 import getReminders from './getReminders';
-import { remindersKey } from './storageKeys';
+import { remindersKey } from '../storageKeys';
 
 export default uid => new Promise(resolve => {
   getReminders().then(reminders => {

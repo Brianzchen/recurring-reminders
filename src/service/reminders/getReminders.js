@@ -1,4 +1,4 @@
-import { remindersKey } from './storageKeys';
+import { remindersKey } from '../storageKeys';
 
 export default () => new Promise(resolve => {
   const storedReminders = localStorage.getItem(remindersKey);
