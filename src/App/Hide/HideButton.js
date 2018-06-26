@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
+import { primary } from 'lib/colors';
+
 import Icon from 'components/Icon';
 
 const styles = StyleSheet.create({
@@ -9,6 +11,9 @@ const styles = StyleSheet.create({
     position: 'fixed',
     top: 0,
     left: 0,
+    fontSize: '48px',
+    color: primary,
+    marginLeft: '9px',
     cursor: 'pointer',
   },
 });
