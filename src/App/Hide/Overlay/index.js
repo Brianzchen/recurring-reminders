@@ -8,17 +8,10 @@ import Body from './Body';
 import Notification from './Notification';
 import Show from './Show';
 
-const dropDownKeyFrame = {
-  '0%': {
-    top: '-100%',
-  },
-};
-
 const styles = StyleSheet.create({
   background: {
     flexDirection: 'column',
-    animationName: [dropDownKeyFrame],
-    animationDuration: '600ms',
+    zIndex: 1000,
   },
 });
 
