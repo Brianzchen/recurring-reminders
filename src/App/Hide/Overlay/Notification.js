@@ -18,7 +18,7 @@ const Notification = props => props.reminders > 0 && (
   <div
     className={css(styles.container)}
   >
-    {props.reminders} active reminder
+    {props.reminders} overdue
   </div>
 );
 
