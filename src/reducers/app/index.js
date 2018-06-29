@@ -13,6 +13,11 @@ export default (state = initialState, action) => {
         ...state,
         hidden: false,
       };
+    case constants.SET_QUOTE:
+      return {
+        ...state,
+        quote: action.payload.quote,
+      };
     default:
       return state;
   }
