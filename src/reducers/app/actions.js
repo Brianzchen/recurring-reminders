@@ -1,5 +1,18 @@
 import * as constants from './constants';
 
+export const bootstrap = () => (
+  (dispatch, getState, { service }) => {
+    service.getQuote().then(quote => {
+      dispatch({
+        type: constants.SET_QUOTE,
+        payload: {
+          quote,
+        },
+      });
+    });
+  }
+);
+
 export const hide = () => (
   (dispatch, getState, { service }) => {
     service.enableHiddenMode().then(() => {

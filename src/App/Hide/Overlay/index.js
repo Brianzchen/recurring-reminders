@@ -6,6 +6,7 @@ import Background from 'components/Background';
 
 import Body from './Body';
 import Notification from './Notification';
+import Quote from './Quote';
 import Show from './Show';
 
 const styles = StyleSheet.create({
@@ -22,6 +23,7 @@ const Overlay = () => createPortal(
     <Show />
     <Notification />
     <Body />
+    <Quote />
   </Background>,
   document.getElementById('root'),
 );

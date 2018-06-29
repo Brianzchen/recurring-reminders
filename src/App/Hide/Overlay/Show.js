@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 
-import { primary } from 'lib/colors';
+import { alternate } from 'lib/colors';
 
 import { show } from 'reducers/app/actions';
 
 const styles = StyleSheet.create({
   button: {
-    color: primary,
+    color: alternate,
     fontSize: '64px',
     cursor: 'pointer',
   },
