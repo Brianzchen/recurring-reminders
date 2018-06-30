@@ -8,6 +8,7 @@ import { alternate } from 'lib/colors';
 const styles = StyleSheet.create({
   text: {
     color: alternate,
+    maxWidth: '700px',
   },
 });
 
