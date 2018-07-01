@@ -7,7 +7,7 @@ import { secondary, alternate } from 'lib/colors';
 
 const styles = StyleSheet.create({
   container: {
-    padding: '8px',
+    padding: '8px 16px',
     borderRadius: '5px',
     backgroundColor: secondary,
     boxShadow: `0 0 10px 5px ${alternate}`,
@@ -18,7 +18,7 @@ const Notification = props => props.reminders > 0 && (
   <div
     className={css(styles.container)}
   >
-    {props.reminders} overdue
+    You have {props.reminders} oustanding reminder{props.reminders > 1 && 's'}
   </div>
 );
 
