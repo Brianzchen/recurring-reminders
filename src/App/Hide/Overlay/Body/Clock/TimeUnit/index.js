@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 import { map, padStart } from 'lodash';
 
 import Number from './Number';
@@ -19,8 +20,14 @@ class TimeUnit extends React.Component {
   }
 
   render() {
+    const styles = StyleSheet.create({
+      container: {
+        display: 'flex',
+      },
+    });
+
     return (
-      <div>
+      <div className={css(styles.container)}>
         {
           map(splitTime(this.props.time), (o, i) => (
             <Number key={i}>

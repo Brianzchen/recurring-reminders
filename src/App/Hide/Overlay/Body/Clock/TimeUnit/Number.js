@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
 class Number extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -7,8 +8,17 @@ class Number extends React.Component {
   }
 
   render() {
+    const styles = StyleSheet.create({
+      container: {
+        width: '58px',
+        fontFamily: "'Orbitron', sans-serif;",
+        fontSize: '64px',
+        textAlign: 'center',
+      },
+    });
+
     return (
-      <div>
+      <div className={css(styles.container)}>
         {this.props.children}
       </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
+import Separator from './Separator';
 import TimeUnit from './TimeUnit';
 
 class Clock extends React.Component {
@@ -30,7 +31,9 @@ class Clock extends React.Component {
     return (
       <div className={css(styles.container)}>
         <TimeUnit time={this.state.time.getHours()} />
+        <Separator />
         <TimeUnit time={this.state.time.getMinutes()} />
+        <Separator />
         <TimeUnit time={this.state.time.getSeconds()} />
       </div>
     );
