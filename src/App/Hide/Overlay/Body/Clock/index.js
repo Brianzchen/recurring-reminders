@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
+import { alternate } from 'lib/colors';
+
 import Separator from './Separator';
 import TimeUnit from './TimeUnit';
 
@@ -14,17 +16,22 @@ class Clock extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.setState({
         time: new Date(),
       });
     }, 200);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     const styles = StyleSheet.create({
       container: {
         display: 'flex',
+        color: alternate,
       },
     });
 
