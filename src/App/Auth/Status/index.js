@@ -1,5 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import { StyleSheet, css } from 'aphrodite';
+
+import { onboard } from 'lib/locations';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,13 +14,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const Status = () => (
+const Status = props => (
   <div
     className={css(styles.container)}
-    onClick={() => { console.log('hi'); }}
+    onClick={() => { props.push(onboard); }}
   >
     Login/Signup
   </div>
 );
 
-export default Status;
+Status.propTypes = {
+  push: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = {
+  push,
+};
+
+export default connect(undefined, mapDispatchToProps)(Status);

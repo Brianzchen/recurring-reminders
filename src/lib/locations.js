@@ -18,3 +18,5 @@ export const home = '/';
 export const addNewReminder = '/new-reminder';
 
 export const deleteReminder = '/delete/:reminderId';
+
+export const onboard = '/onboard';
