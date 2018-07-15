@@ -10,6 +10,7 @@ import { addNewReminder, deleteReminder } from 'lib/locations';
 
 import { bootstrap } from 'reducers/app/actions';
 
+import Auth from './Auth';
 import Body from './Body';
 import DeleteReminderConfirmation from './DeleteReminderConfirmation';
 import Footer from './Footer';
@@ -39,6 +40,7 @@ class App extends React.Component {
         <Body />
         <Footer />
         <Hide />
+        <Auth />
         <Route path={addNewReminder} component={NewReminder} />
         <Route path={deleteReminder} component={DeleteReminderConfirmation} />
       </div>
